@@ -2,15 +2,23 @@ import Main from './components/MainComponents';
 import './App.css';
 import { Component } from 'react/cjs/react.production.min';
 import { BrowserRouter } from 'react-router-dom';
-class App extends Component {
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
 
+
+const store = ConfigureStore();
+
+
+class App extends Component {
   render(){
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <div>
           <Main/>
       </div>
     </BrowserRouter>
+    </Provider>
   );
 }
 }
